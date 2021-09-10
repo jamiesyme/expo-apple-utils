@@ -10,7 +10,7 @@ This repo was cloned from the NPM package that Expo publishes, since they don't 
 
 We needed to patch the code so that asks for MFA tokens from us instead of prompting the command line for them, since we run the program in non-interactive mode.
 
-Specifically, the code that we needed to change was the implementation of `parseAndPromptTFAAsync()`. We replaced the body with `return await _expoHacks_getMfaToken();`, which is a global function that our builder defines.
+Specifically, the code that we needed to change was the implementation of `parseAndPromptTFAAsync()`. We replaced the body with `return await _expoHacks_getAppleMfaToken();`, which is a global function that our builder defines.
 
 We didn't need to modify the code that prompts for usernames and passwords, since that actually appeared to be handled by `expo-cli` (which we cloned and patched separately).
 
